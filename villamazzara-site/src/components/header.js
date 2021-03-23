@@ -12,7 +12,7 @@ const Header = ({toggle}) => {
             <Link to="" className="lg:block hidden">La casa</Link>
             <Link to="" className="lg:block hidden">Galeria</Link>
             <Link to="/activitats/" className="lg:block hidden">Activitats</Link>
-            <Link to="/preus/" className="lg:block hidden">Preus</Link>
+            <Link to="" className="lg:block hidden">Preus</Link>
             <Link to="" className="lg:block hidden">Ubicació</Link>
             <Link to="" className="lg:block hidden">Contacte</Link>
             <button className="lg:block hidden bg-verdfosc hover:bg-verdclar font-semibold text-white py-3 w-24 focus:outline-none	 rounded-sm tracking-wide">RESERVA</button>
