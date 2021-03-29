@@ -7,7 +7,7 @@ export default {
     {
       name: 'titol',
       title: 'Titol',
-      type: 'string',
+      type: 'localeString',
     },
     {
       name: 'imatge',
@@ -20,7 +20,7 @@ export default {
     {
       name: 'text',
       title: 'Descripció',
-      type: 'text',
+      type: 'localeText',
     },
   ],
 }

@@ -3,6 +3,7 @@ module.exports = {
     title: `Villa Mazzara`,
     description: `Casa rural amb encant al Maresme.`,
     author: `Alice Novell`,
+    supportedLanguages: ['ca','es','en','fr']
   },
   plugins: [
     {

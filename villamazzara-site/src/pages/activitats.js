@@ -8,11 +8,12 @@ import "@fontsource/playfair-display"
 import {graphql} from 'gatsby'
 
 
-const Inici = ({data}) => {
+const Inici = ({data,pageContext}) => {
   const [isOpen,setIsOpen]= useState(false);
   const toggle=()=>{
     setIsOpen(!isOpen)
   };
+  var lang=pageContext.lang
 
   let actesportiva = data.esportiva.nodes
   let actcultural = data.cultural.nodes
@@ -21,9 +22,9 @@ const Inici = ({data}) => {
     return (
 		<div className="font-sans bg-blanc text-negre ">
 				
-			<Header toggle={toggle}/>
-			<Dropdown isOpen={isOpen} toggle={toggle}/>
-			<Activitats actesportiva={actesportiva} actcultural={actcultural} actoci={actoci}/>
+			<Header toggle={toggle} lang={lang}/>
+			<Dropdown isOpen={isOpen} toggle={toggle} lang={lang}/>
+			<Activitats actesportiva={actesportiva} actcultural={actcultural} actoci={actoci} lang={lang}/>
       <Footer/>
 
 
@@ -38,8 +39,18 @@ export const data = graphql`
 query Act {
   esportiva: allSanityLlistaact(filter: {tipusact: {eq: "esportiva"}}) {
     nodes {
-      titol
-      text
+      titol{
+        ca
+        es
+        en
+        fr
+      }
+      text{
+        ca
+        es
+        en
+        fr
+      }
       imatge {
         asset {
           fluid {
@@ -55,8 +66,18 @@ query Act {
   }
   cultural: allSanityLlistaact(filter: {tipusact: {eq: "cultural"}}) {
     nodes {
-      titol
-      text
+      titol{
+        ca
+        es
+        en
+        fr
+      }
+      text{
+        ca
+        es
+        en
+        fr
+      }
       imatge {
         asset {
           fluid {
@@ -72,8 +93,18 @@ query Act {
   }
   oci: allSanityLlistaact(filter: {tipusact: {eq: "oci"}}) {
     nodes {
-      titol
-      text
+      titol{
+        ca
+        es
+        en
+        fr
+      }
+      text{
+        ca
+        es
+        en
+        fr
+      }
       imatge {
         asset {
           fluid {

@@ -3,7 +3,7 @@ import {GatsbyImage} from 'gatsby-plugin-image'
 import Img from "gatsby-image"
 
 
-const FitxaAct = ({titol,text,imatge}) => {
+const FitxaAct = ({titol,text,imatge,lang}) => {
 
     var x=0
     var y=0
@@ -15,6 +15,24 @@ const FitxaAct = ({titol,text,imatge}) => {
         x = imatge.hotspot.x;
         y = imatge.hotspot.y;
     }
+
+    if (lang == "ca") {
+        titol=titol.ca
+        text=text.ca
+      } else if (lang == "es"){
+          titol=titol.es
+          text=text.es
+      } else if (lang =="en"){
+          titol=titol.en
+          text=text.en
+      } else if (lang == "fr"){
+          titol=titol.fr
+          text=text.fr
+      } else {
+          titol=titol.ca
+          text=text.ca
+      }
+
 
     return (
         <div className="w-72 bg-beige rounded overflow-hidden shadow-md my-2">

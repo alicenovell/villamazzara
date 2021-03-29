@@ -6,7 +6,8 @@ export default {
       {
           title: 'Titol de l\'apartat',
           name: 'subcasa',
-          type: 'string',
+          type: 'localeString',
+          key: 'subcasa',
       },
       {
         title: 'Items',

@@ -7,7 +7,7 @@ export default {
         {
         name: 'titol',
         title: 'Titol',
-        type: 'string',
+        type: 'localeString',
         },
         {
             title: 'Icona',

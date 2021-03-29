@@ -14,6 +14,9 @@ import llistacaract from './llistacaract'
 import benvinguts from './benvinguts'
 import casa from './casa'
 import item from './item'
+import localeString from './localeString'
+import localeText from './localeText'
+import nav from './nav'
 
 
 
@@ -34,6 +37,9 @@ export default createSchema({
     casa,
     item,
     llistaact,
+    localeString,
+    localeText,
+    nav,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

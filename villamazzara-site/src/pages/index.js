@@ -8,29 +8,43 @@ import {graphql,Link} from 'gatsby'
 import Footer from "../components/footer"
 import Llistacasa from "../components/Llistacasa"
 
-
-
-const Inici = ({data}) => {
+const Inici = ({data,pageContext}) => {
   const [isOpen,setIsOpen]= useState(false);
   const toggle=()=>{
     setIsOpen(!isOpen)
   };
+  console.log(data)
 
+  var lang=pageContext.lang
   let plantabaixa = data.plantabaixa.nodes[0]
   let primeraplanta = data.primeraplanta.nodes[0]
   let exteriors = data.exteriors.nodes[0]
 
+    let textcasa=data.allSanityBenvinguts.nodes[0].textcasa.ca
+
+  if (lang == "ca") {
+    textcasa=data.allSanityBenvinguts.nodes[0].textcasa.ca
+  } else if (lang == "es"){
+      textcasa=data.allSanityBenvinguts.nodes[0].textcasa.es
+  } else if (lang =="en"){
+      textcasa=data.allSanityBenvinguts.nodes[0].textcasa.en
+  } else if (lang == "fr"){
+      textcasa=data.allSanityBenvinguts.nodes[0].textcasa.fr
+  } else {
+      textcasa=data.allSanityBenvinguts.nodes[0].textcasa.ca
+  }
+
     return (
 		<div className="font-sans bg-blanc text-negre flex flex-col ">
 				
-			<Header toggle={toggle}/>
-			<Dropdown isOpen={isOpen} toggle={toggle}/>
-      <Benvinguts/>
+			<Header toggle={toggle} lang={lang}/>
+			<Dropdown isOpen={isOpen} toggle={toggle} lang={lang}/>
+      <Benvinguts lang={lang}/>
       <h2 className="font-serif text-3xl mt-20 mb-8 text-center">La casa</h2>
-      <h3 className="font-serif text-2xl italic mt-10 mb-8 text-center self-center max-w-2xl">{data.allSanityBenvinguts.nodes[0].textcasa}</h3>
-      <Llistacasa props={plantabaixa} rot={'-rotate-12 w-80'}/>
-      <Llistacasa props={primeraplanta} rot={'-rotate-12 w-72'}/>
-      <Llistacasa props={exteriors} rot={'rounded w-80'}/>
+      <h3 className="font-serif text-2xl italic mt-10 mb-8 text-center self-center max-w-2xl">{textcasa}</h3>
+      <Llistacasa props={plantabaixa} rot={'-rotate-12 w-80'} lang={lang}/>
+      <Llistacasa props={primeraplanta} rot={'-rotate-12 w-72'} lang={lang}/>
+      <Llistacasa props={exteriors} rot={'rounded w-80'} lang={lang}/>
 
       <Footer/>
 
@@ -40,15 +54,27 @@ const Inici = ({data}) => {
 
     );
 };
+
 export default Inici;
+
 
 export const data = graphql`
 query casa {
-  plantabaixa: allSanityCasa(filter: {subcasa: {eq: "Planta baixa"}}) {
+  plantabaixa: allSanityCasa(filter: {subcasa: {ca: {eq: "Planta baixa"}}}) {
     nodes {
-      subcasa
+      subcasa{
+        ca
+        es
+        en
+        fr
+      }
       items {
-        titol
+        titol {
+          ca
+          es
+          en
+          fr
+        }
         icon
       }
       imatge {
@@ -64,11 +90,21 @@ query casa {
       }
     }
   }
-   primeraplanta: allSanityCasa(filter: {subcasa: {eq: "Primera planta"}}) {
+   primeraplanta: allSanityCasa(filter: {subcasa: {ca: {eq: "Primera planta"}}}) {
     nodes {
-      subcasa
+      subcasa{
+        ca
+        es
+        en
+        fr
+      }
       items {
-        titol
+        titol {
+          ca
+          es
+          en
+          fr
+        }
         icon
       }
       imatge {
@@ -84,11 +120,21 @@ query casa {
       }
     }
   }
-  exteriors: allSanityCasa(filter: {subcasa: {eq: "Exteriors"}}) {
+  exteriors: allSanityCasa(filter: {subcasa: {ca: {eq: "Exteriors"}}}) {
     nodes {
-      subcasa
+      subcasa{
+        ca
+        es
+        en
+        fr
+      }
       items {
-        titol
+        titol {
+          ca
+          es
+          en
+          fr
+        }
         icon
       }
       imatge {
@@ -106,7 +152,12 @@ query casa {
   }
   allSanityBenvinguts {
     nodes {
-      textcasa
+      textcasa {
+        ca
+        es
+        en
+        fr
+      }
   }
 }
 }

@@ -9,7 +9,7 @@ import Itemllista from "../components/itemllista"
 
 
 
-const Contacte = ({pageContext}) => {
+const Reserva = ({pageContext}) => {
   const [isOpen,setIsOpen]= useState(false);
   const toggle=()=>{
     setIsOpen(!isOpen)
@@ -23,12 +23,12 @@ const Contacte = ({pageContext}) => {
 			<Header toggle={toggle} lang={lang}/>
 			<Dropdown isOpen={isOpen} toggle={toggle} lang={lang}/>
             <div className="text-center">
-                                <h1 className="font-serif text-3xl my-8 text-center">Contacte</h1>
-                                <p className="">Si ho desitja, demani'ns informació per correu, telèfon o des del següent formulari.</p>
+                                <h1 className="font-serif text-3xl my-8 text-center">Reserva</h1>
+                                <p className="">Realitza la petició de la teva reserva a través del formulari, enviant un correu o per telèfon.</p>
                                 <p className="">En breu ens posarem en contacte amb vostè.</p>
                                 <p className="">Moltes gràcies!</p>
             </div>
-                <div className="flex items-center justify-center flex-col-reverse md:flex-row">
+                <div className="flex items-center justify-center">
                     <div className="mx-8">
                         <div className="max-w-lg mx-auto my-10 bg-beige p-5 rounded shadow-sm">
                             <div className="m-7">
@@ -53,7 +53,7 @@ const Contacte = ({pageContext}) => {
                                         <textarea rows="5" name="message" id="message" placeholder="Your Message" className="bg-transparent w-full px-3 py-2 placeholder-verdclar border-b border-verdclar focus:outline-none focus:border-verdfosc" required></textarea>
                                     </div>
                                     <div className="mb-6">
-                                        <button type="submit" className="w-full font-sans bg-verdfosc hover:bg-verdclar font-semibold text-white py-3 w-24 focus:outline-none	rounded tracking-wide">ENVIAR</button>
+                                        <button type="submit" className="w-full font-sans bg-verdfosc hover:bg-verdclar font-semibold text-white py-3 w-24 focus:outline-none	rounded tracking-wide">Send Message</button>
                                     </div>
                                     <p className="text-base text-center text-gray-400" id="result">
                                     </p>
@@ -61,9 +61,9 @@ const Contacte = ({pageContext}) => {
                             </div>
                         </div>
                     </div>
-                    <div className="px-8 font-serif text-2xl bg-red-400 items-center flex flex-col">
+                    <div className="px-8 font-serif text-2xl">
                         <Itemllista titol="telf" icon="phone" />
-                        <Itemllista titol="telf" icon="bed" />
+                        
 
                     </div>
                 </div>   
@@ -75,4 +75,4 @@ const Contacte = ({pageContext}) => {
 
     );
 };
-export default Contacte;
+export default Reserva;

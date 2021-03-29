@@ -14,6 +14,14 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
+      S.listItem()
+        .title('Barra de navegació')
+        .child(
+          //displaying out editor window using the siteSettings schema
+          S.editor()
+            .schemaType('nav')
+            .documentId('nav')
+        ),
       // add a visual divider (optional)
       S.divider(),
       S.listItem()
@@ -27,5 +35,5 @@ export default () =>
       // list out the rest of the document types,
       //but filter out the config type
       ...S.documentTypeListItems()
-        .filter(listItem => !['siteSettings','benvinguts'].includes(listItem.getId()))
+        .filter(listItem => !['siteSettings','benvinguts','nav'].includes(listItem.getId()))
     ])

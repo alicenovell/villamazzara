@@ -6,7 +6,7 @@ export default {
     {
       name: 'titol',
       title: 'Titol',
-      type: 'string',
+      type: 'localeString',
     },
     {
       title: 'Tipus d\'activitat',
@@ -32,7 +32,7 @@ export default {
     {
       name: 'text',
       title: 'Descripció',
-      type: 'text',
+      type: 'localeText',
     },
   ],
 }

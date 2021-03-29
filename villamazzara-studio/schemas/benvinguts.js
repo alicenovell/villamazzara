@@ -6,12 +6,12 @@ export default {
       {
           title: 'Descripció breu casa rural',
           name: 'textbenvinguts',
-          type: 'text',
+          type: 'localeText',
       },
       {
         title: 'Descripció breu sobre la casa una mica més concreta',
         name: 'textcasa',
-        type: 'text',
+        type: 'localeText',
     },
       {
         title: 'Llista de característiques de la casa',
